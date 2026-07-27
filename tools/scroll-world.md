@@ -1,56 +1,41 @@
-# Scroll world — scrolling, searching, selecting, copying
+[<- Назад](/README.md)
 
-tmux has two states. Knowing which one you're in explains every key.
+## Режим прокрутки
 
-1. **Normal** — your everyday shell. Every command starts with the backtick.
-2. **Scroll world** — you enter it to look back at old output, search, or
-   select + copy text. **Inside it you drop the backtick** — keys are bare.
-   Press `q` or `Esc` to return to Normal.
+В `tmux` есть два режима:
 
-You enter scroll world with `` ` `` `y` (or `v` / `w` / `^`), or just by
-scrolling the mouse wheel up.
+1. **Обычный** — работа в терминале. Все команды начинаются с `` ` ``.
+2. **Режим прокрутки** — просмотр истории, поиск и копирование текста. В этом режиме **префикс не нужен**. Выход — `q` или `Esc`.
 
----
+Войти можно через `` ` `` `y` (или `v`, `w`, `^`) либо прокруткой колеса мыши вверх.
 
-## 1. Scroll page by page
-The live shell only shows the latest output. To look back:
+## Прокрутка
 
-- **`` ` `` `y`** → jump **up a page** into the history (this puts you in scroll world).
-- Now, bare keys: **`y`** = another page up, **`v`** = a page down.
-  `PageUp` / `PageDown` and the **mouse wheel** work too.
-- **`q`** or **`Esc`** → back to normal.
+- **`` ` `` `y`** — страница вверх и вход в режим прокрутки.
+- Далее: **`y`** — вверх, **`v`** — вниз.
+- Также работают `PageUp`, `PageDown` и колесо мыши.
+- **`q`** или **`Esc`** — выход.
 
-## 2. Search for a line with a word
-- **`` ` `` `w`** → a `search:` prompt appears at the bottom. Type the word, `Enter`.
-- tmux jumps to the nearest match **above**. Search again for the next one.
-- This is nano's `Ctrl-W` ("Where is").
+## Поиск
 
-## 3. Select / copy / paste
+- **`` ` `` `w`** — открыть поиск.
+- Введите слово и нажмите `Enter`.
+- Повторите поиск для следующего совпадения.
 
-**Easy way — mouse:**
-- **Drag** across text → selected *and* already copied to the macOS clipboard.
-  Paste anywhere with the normal `Cmd-V`.
+## Копирование
 
-**Keyboard way — nano style:**
-| Step | Key            | What happens                                  |
-|------|----------------|-----------------------------------------------|
-| 1    | `` ` `` `y`    | enter scroll world                            |
-| 2    | arrows / `y` `v` | move the cursor to the **start** of the text |
-| 3    | `^` (or `Space`) | drop a mark — selection starts here          |
-| 4    | arrows         | stretch the selection to the **end**          |
-| 5    | `k` (or `Enter`) | **copy** to the macOS clipboard, and leave   |
-| 6    | `` ` `` `u`    | **paste** it back into the terminal           |
 
-## Paste, the two clipboards
-- **`` ` `` `u`** pastes into the *terminal*.
-- To paste into another Mac app, use **`Cmd-V`** — the copy already went to the
-  real macOS clipboard. `Cmd-V` also pastes *from* other apps into tmux.
+| Шаг | Действие |
+|------|----------|
+| 1 | `` ` `` `y` — войти в режим прокрутки |
+| 2 | Перейти к началу текста |
+| 3 | `^` или `Space` — начать выделение |
+| 4 | Выделить текст стрелками |
+| 5 | `k` или `Enter` — скопировать и выйти |
+| 6 | `` ` `` `u` — вставить в терминал |
 
----
+## Буфер обмена
 
-### The 6-word version
-Scroll: `` ` `` `y`. Search: `` ` `` `w`. Copy: mark `^`, grab `k`. Paste: `` ` `` `u`.
+- **`` ` `` `u`** — вставить в терминал.
+- **`Cmd-V`** — вставить в любое приложение macOS.
 
-> **Non-macOS note:** copying uses `pbcopy`, which is macOS-only. On Linux,
-> swap `pbcopy` for `xclip -selection clipboard` (X11) or `wl-copy` (Wayland)
-> in `tmux.conf`.

@@ -1,51 +1,56 @@
-# Shortcuts
+[<- Назад](/README.md)
 
-Prefix is the backtick **`` ` ``**. "Press `` ` `` `x`" = tap backtick, release,
-then tap `x`. Scrolling, searching, and copying live in their own page:
-**[scroll-world.md](scroll-world.md)**.
+## Горячие клавиши
 
-## Splits (panes)
-| Keys        | Does                                             |
-|-------------|--------------------------------------------------|
-| `` ` `` `\` | split **side-by-side** (you call it vertical)    |
-| `` ` `` `-` | split **stacked** (horizontal)                   |
-| `` ` `` `←` `↓` `↑` `→` | move to the split in that direction  |
-| `` ` `` `z` | **zoom** a split to fullscreen; press again to undo |
-| `` ` `` `x` | close the current split — **asks y/n first**     |
+Префикс — **`` ` ``**.  
+Например: `` ` `` `x` — нажмите `, отпустите, затем `x`.
 
-## Windows (you rarely touch these)
-| Keys           | Does                                          |
-|----------------|-----------------------------------------------|
-| `` ` `` `n`    | **new** window                                |
-| `` ` `` `o`    | close the active window — **asks y/n first**  |
-| `` ` `` `1`…`9`| jump straight to window 1–9                   |
+## Разделение экрана
 
-Windows auto-label themselves **1, 2, 3, …** — no naming to do, and closing one
-renumbers the rest so there are never gaps. (Closing the *last* window quits tmux.)
+| Клавиши | Действие |
+|----------|----------|
+| `` ` `` `\` | разделить слева/справа |
+| `` ` `` `-` | разделить сверху/снизу |
+| `` ` `` `←` `↓` `↑` `→` | перейти к соседней панели |
+| `` ` `` `z` | развернуть панель на весь экран / вернуть |
+| `` ` `` `x` | закрыть панель (с подтверждением) |
 
-## Scroll / search / copy  → enters the scroll world
-| Keys        | Does                                             |
-|-------------|--------------------------------------------------|
-| `` ` `` `y` | scroll **up** a page (nano `Ctrl-Y`)             |
-| `` ` `` `v` | scroll **down** a page (nano `Ctrl-V`)           |
-| `` ` `` `w` | search the scrollback for a word (nano "Where is") |
-| `` ` `` `^` | start a selection (nano mark)                    |
-| `` ` `` `u` | paste into the terminal (nano `Ctrl-U`)          |
+## Окна
 
-Full flow explained in **[scroll-world.md](scroll-world.md)**.
+| Клавиши | Действие |
+|----------|----------|
+| `` ` `` `n` | новое окно |
+| `` ` `` `o` | закрыть окно (с подтверждением) |
+| `` ` `` `1`…`9` | перейти к окну 1–9 |
 
-## Housekeeping
-| Keys           | Does                                          |
-|----------------|-----------------------------------------------|
-| `` ` `` `=`    | reload the config — delivers your edits       |
-| `` ` `` `` ` ``| type a real backtick                          |
+Окна автоматически нумеруются: **1, 2, 3…** После закрытия номера пересчитываются. Если закрыть последнее окно — `tmux` завершится.
 
-## Nano ↔ nanomux
-| Nano       | nanomux            | Action        |
-|------------|--------------------|---------------|
-| `Ctrl-Y`   | `` ` `` `y`        | page up       |
-| `Ctrl-V`   | `` ` `` `v`        | page down     |
-| `Ctrl-W`   | `` ` `` `w`        | search        |
-| `Ctrl-^`   | `` ` `` `^` / `^`  | start select  |
-| `Ctrl-K`   | `k` (in scroll)    | copy          |
-| `Ctrl-U`   | `` ` `` `u`        | paste         |
+## Прокрутка / поиск / копирование
+
+| Клавиши | Действие |
+|----------|----------|
+| `` ` `` `y` | страница вверх |
+| `` ` `` `v` | страница вниз |
+| `` ` `` `w` | поиск |
+| `` ` `` `^` | начать выделение |
+| `` ` `` `u` | вставить |
+
+Подробнее: [scroll-world.md](/tools/scroll-world.md)
+
+## Служебные
+
+| Клавиши | Действие |
+|----------|----------|
+| `` ` `` `=` | перезагрузить конфиг |
+| `` ` `` `` ` `` | вставить символ `` ` `` |
+
+## nanomux
+
+| Nano | nanomux | Действие |
+|-------|----------|----------|
+| `Ctrl-Y` | `` ` `` `y` | страница вверх |
+| `Ctrl-V` | `` ` `` `v` | страница вниз |
+| `Ctrl-W` | `` ` `` `w` | поиск |
+| `Ctrl-^` | `` ` `` `^` | начать выделение |
+| `Ctrl-K` | `k` (в режиме прокрутки) | копировать |
+| `Ctrl-U` | `` ` `` `u` | вставить |
